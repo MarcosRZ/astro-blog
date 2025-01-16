@@ -1,0 +1,45 @@
+---
+import BlogPost from "@components/BlogPost.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getAllPosts } from '@services/posts';
+import { getTags } from '@services/tags';
+
+export async function getStaticPaths() {
+  const allPosts = getAllPosts();
+  const tags = getTags();
+  // return [
+  //   { params: { tag: "astro" }, props: { posts: allPosts } },
+  //   { params: { tag: "successes" }, props: { posts: allPosts } },
+  //   { params: { tag: "community" }, props: { posts: allPosts } },
+  //   { params: { tag: "blogging" }, props: { posts: allPosts } },
+  //   { params: { tag: "setbacks" }, props: { posts: allPosts } },
+  //   { params: { tag: "learning in public" }, props: { posts: allPosts } },
+  // ];
+
+  const paths = tags.map((tag) => ({
+    params: { tag },
+    props: { 
+      tag,
+      posts: allPosts.filter((post: any) => post.frontmatter.tags.includes(tag)),
+    },
+  }));
+
+  console.log("Paths",  paths)
+
+  return paths;
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout pageTitle={tag}>
+  <p>Posts tagged with {tag}</p>
+  <ul>
+    {
+      posts.map((post: any) => (
+        <BlogPost url={post.url} title={post.frontmatter.title} />
+      ))
+    }
+  </ul>
+</BaseLayout>
