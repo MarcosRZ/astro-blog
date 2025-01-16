@@ -1,3 +1,3 @@
-export const getAllPosts = () => Object.values(
-  import.meta.glob('@posts/*.md', { eager: true })
-);
+import { getCollection } from 'astro:content';
+
+export const getAllPosts = () => getCollection("blog");

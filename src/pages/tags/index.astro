@@ -2,7 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { getTags } from "@services/tags";
 const pageTitle = "Tag Index";
-const tags = getTags()
+const tags = await getTags()
 console.log(tags)
 ---
 

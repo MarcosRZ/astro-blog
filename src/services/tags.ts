@@ -1,3 +1,6 @@
 import { getAllPosts } from '@services/posts'
 
-export const getTags = () => [...new Set(getAllPosts().map((post: any) => post.frontmatter.tags))].flat();
+export const getTags = async () => {
+  const allPosts = await getAllPosts();
+  return [...new Set(allPosts.map((post: any) => post.data.tags).flat())];
+}

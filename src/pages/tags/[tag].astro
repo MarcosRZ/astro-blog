@@ -5,8 +5,8 @@ import { getAllPosts } from '@services/posts';
 import { getTags } from '@services/tags';
 
 export async function getStaticPaths() {
-  const allPosts = getAllPosts();
-  const tags = getTags();
+  const allPosts = await getAllPosts();
+  const tags = await getTags();
   // return [
   //   { params: { tag: "astro" }, props: { posts: allPosts } },
   //   { params: { tag: "successes" }, props: { posts: allPosts } },
@@ -20,7 +20,7 @@ export async function getStaticPaths() {
     params: { tag },
     props: { 
       tag,
-      posts: allPosts.filter((post: any) => post.frontmatter.tags.includes(tag)),
+      posts: allPosts.filter((post: any) => post.data.tags.includes(tag)),
     },
   }));
 
@@ -38,7 +38,8 @@ const { posts } = Astro.props;
   <ul>
     {
       posts.map((post: any) => (
-        <BlogPost url={post.url} title={post.frontmatter.title} />
+        // <BlogPost url={post.url} title={post.frontmatter.title} />
+        <BlogPost url={`/posts/${post.id}/`} title={post.data.title} />
       ))
     }
   </ul>
