@@ -1,36 +1,51 @@
 ---
+import Tags from '@components/Tags.astro';
 import BaseLayout from './BaseLayout.astro';
-
-const { frontmatter } = Astro.props;
+import { Image } from 'astro:assets';
+const { 
+  title,
+  description,
+  author,
+  pubDate,
+  tags,
+  image,
+  imageAlt,
+ } = Astro.props.frontmatter;
 ---
-<BaseLayout pageTitle={frontmatter.title}>
-  <p>{frontmatter.pubDate.toLocaleDateString()}</p>
-  <p><em>{frontmatter.description}</em></p>
-  <p>Written by: {frontmatter.author}</p>
-  <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
-  <div class="tags">
-    {frontmatter.tags.map((tag: string) => (
-      <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
-    ))}
+<BaseLayout pageTitle={title} description={description}>
+  <div class="flex flex-col gap-8 mt-4 mb-12">
+    <div class="">
+      <em class="text-lg">{description}</em>
+    </div>
+    <div class="text-sm">
+      <div>Written by <a href={author.url} target="_blank">{author.name}</a> on {pubDate.toLocaleDateString()}</div>
+    </div>
+    <div class="flex gap-6 w-full overflow-auto">
+      <Tags tags={tags} />
+    </div>
+    { image && (
+      <Image class="py-2" src={image} alt={imageAlt} />
+    )}
   </div>
-  <slot />
+  <!-- <div class="prose blog-post mb-16 "> -->
+  <div class="prose dark:prose-invert
+    max-w-[1024px]
+    prose-h1:font-bold prose-h1:text-xl
+    prose-headings:no-underline
+    prose-a:font-black prose-a:text-primary-600 dark:prose-a:text-primary-400 prose-a:no-underline
+    prose-p:text-justify 
+    prose-img:rounded-sm prose-img:w-full md:prose-img:my-24
+    prose-code:rounded-xl
+    m-auto
+    border-y border-dashed py-8 my-2 border-black/20 dark:border-white/20
+  ">
+    <slot />
+  </div>
+  <div 
+    class="text-center mt-32 mb-16">
+    Written by <a href={author.url} target="_blank" rel="noreferrer noopener">{author.name}</a> on {pubDate.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })}</div>
 </BaseLayout>
-<style>
-  a {
-    color: #00539F;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: .5em;
-    padding: .5em 1em;
-    font-size: 1.15em;
-    background-color: #F8FCFD;
-  }
-</style>

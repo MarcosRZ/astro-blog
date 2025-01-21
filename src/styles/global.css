@@ -1,89 +1,131 @@
-html {
-  background-color: #f1f5f9;
-  font-family: sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f1f5f9;
+  --text-regular: #222;
+  --highlight: var(--primary-700);
+
+  --primary-50: #f2f0ff;
+  --primary-100: #e9e4ff;
+  --primary-200: #d5cdff;
+  --primary-300: #b7a6ff;
+  --primary-400: #9573ff;
+  --primary-500: #763bff;
+  --primary-600: #6814ff;
+  --primary-700: #5900ff;
+  --primary-800: #4b01d6;
+  --primary-900: #3f03af;
+  --primary-950: #240077;
+
+  --secondary-50: #edfcfe;
+  --secondary-100: #d2f5fb;
+  --secondary-200: #aae9f7;
+  --secondary-300: #70d7f0;
+  --secondary-400: #1eb1d9;
+  --secondary-500: #129ec8;
+  --secondary-600: #127fa8;
+  --secondary-700: #166788;
+  --secondary-800: #1b546f;
+  --secondary-900: #1a465f;
+  --secondary-950: #0c2d40;
 }
 
-body {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 80ch;
-  padding: 1rem;
-  line-height: 1.5;
+.dark {
+  --background: #222;
+  --text-regular: #f1f5f9;
+  --highlight: var(--primary-300);
+
+  --primary-50: #f2f0ff;
+  --primary-100: #e9e4ff;
+  --primary-200: #d5cdff;
+  --primary-300: #b7a6ff;
+  --primary-400: #9573ff;
+  --primary-500: #763bff;
+  --primary-600: #6814ff;
+  --primary-700: #5900ff;
+  --primary-800: #4b01d6;
+  --primary-900: #3f03af;
+  --primary-950: #240077;
+
+  --secondary-50: #faffe5;
+  --secondary-100: #f2ffc7;
+  --secondary-200: #e3ff95;
+  --secondary-300: #c4ff3b;
+  --secondary-400: #b5f625;
+  --secondary-500: #95dd05;
+  --secondary-600: #73b100;
+  --secondary-700: #568605;
+  --secondary-800: #46690b;
+  --secondary-900: #3b590e;
+  --secondary-950: #1d3201;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-h1 {
-  margin: 1rem 0;
-  font-size: 2.5rem;
-}
-/* nav styles */
-.hamburger {
-  padding-right: 20px;
-  cursor: pointer;
-}
-
-.hamburger .line {
-  display: block;
-  width: 40px;
-  height: 5px;
-  margin-bottom: 10px;
-  background-color: #ff9776;
-}
-
-.nav-links {
-  width: 100%;
-  top: 5rem;
-  left: 48px;
-  background-color: #ff9776;
-  display: none;
-  margin: 0;
-}
-
-.nav-links a {
-  display: block;
-  text-align: center;
-  padding: 10px 0;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.nav-links a:hover, a:focus {
-  background-color: #ff9776;
-}
-
-.expanded {
-  display: unset;
-}
-
-@media screen and (min-width: 636px) {
-  .nav-links {
-    margin-left: 5em;
-    display: block;
-    position: static;
-    width: auto;
-    background: none;
+@layer base {
+  html {
+    background-color: var(--background);
+    font-family: sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--text-regular)
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: always;
   }
 
-  .nav-links a {
-    display: inline-block;
-    padding: 15px 20px;
+  a {
+    @apply text-highlight hover:text-secondary-500 font-extrabold
   }
 
-  .hamburger {
-    display: none;
+  strong {
+    @apply font-black
   }
-}
 
-html.dark {
-  background-color: #0d0950;
-  color: #fff;
+  h1 {
+    @apply text-h1 font-black mt-4;
+  }
+
+  h2 {
+    @apply text-h2 font-black mt-12 mb-8;
+  }
+
+  h3 {
+    @apply text-h3 font-black;
+  }
+
+  h4 {
+    @apply text-h4 font-black;
+  }
+
+  h5 {
+    @apply text-h5 font-black;
+  }
+
+  h6 {
+    @apply text-h6 font-black;
+  }
+
+  p {
+    @apply my-6
+  }
+
+  pre {
+    @apply my-8
+  }
+
+  code {
+    @apply p-4 block;
+  }
 }
 
 .dark .nav-links a {
-  color: #fff;
+  color: #DDD;
 }

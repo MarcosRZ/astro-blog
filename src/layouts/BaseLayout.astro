@@ -1,22 +1,35 @@
 ---
-import Header from '@components/Header.astro';
-import Footer from '@components/Footer.astro';
-import '@styles/global.css';
-const { pageTitle } = Astro.props;
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import "@styles/global.css";
+import "@fontsource/ibm-plex-mono";
+const { pageTitle, description } = Astro.props;
+const DEFAULT_DESCRIPTION = 'A personal blog on programming and software architecture, featuring reflections, analysis, and best practices for building robust and scalable systems.'
 ---
+
 <html lang="en">
   <head>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="description" content={ description || DEFAULT_DESCRIPTION}>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
   </head>
-  <body>
-    <Header />
-    <h1>{pageTitle}</h1>
-    <slot />
-    <Footer />
+  <body class="transition-colors ease-in-out duration-200">
+    <div class="fixed w-full bg-background border-b border-b-gray-200  dark:border-b-primary-300">
+      <div class="max-w-[1024px] m-auto px-4 py-6">
+        <Header />
+      </div>
+    </div>
+    <main class="pt-24 md:pt-[8rem] pb-16 px-4 max-w-[1024px] m-auto min-h-[85vh]">
+      <h1 class="mb-8">{pageTitle}</h1>
+      <slot />
+    </main>
+    <div class="mt-4" >
+      <Footer />
+    </div>
     <script>
       import "@scripts/menu.js";
     </script>

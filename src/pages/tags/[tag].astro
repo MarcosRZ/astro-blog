@@ -33,13 +33,12 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
 
-<BaseLayout pageTitle={tag}>
-  <p>Posts tagged with {tag}</p>
-  <ul>
+<BaseLayout pageTitle={`Posts tagged with "${tag}"`}>
+  <ul class="flex flex-col gap-4">
     {
       posts.map((post: any) => (
         // <BlogPost url={post.url} title={post.frontmatter.title} />
-        <BlogPost url={`/posts/${post.id}/`} title={post.data.title} />
+        <li class="text-lg"><BlogPost image={post.data.image} imageAlt={post.data.imageAlt} url={`/posts/${post.id}/`} title={post.data.title} description={post.data.description} pubDate={post.data.pubDate} author={post.data.author} /></li>
       ))
     }
   </ul>

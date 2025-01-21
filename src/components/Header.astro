@@ -1,12 +1,28 @@
 ---
-import Hamburguer from './Hamburguer.astro'
-import Navigation from './Navigation.astro'
-import ThemeIcon from './ThemeIcon.astro'
+import Hamburguer from '@components/Hamburguer.astro'
+import ThemeIcon from '@components/ThemeIcon.astro'
+import Navigation from '@components/Navigation.astro'
 ---
 <header>
   <nav>
-    <Hamburguer />
-    <ThemeIcon />
-    <Navigation />
+    <div class="flex justify-between items-center">
+      <div class="flex items-center gap-10">
+        <Navigation/>
+      </div>
+      <div class="flex items-center gap-6">
+        <ThemeIcon />
+        <div class="block sm:hidden">
+          <Hamburguer />
+        </div>
+      </div>
+    </div>
+    <div id="mobile-navigation" class="hidden sm:hidden mt-8 select-none">
+      <ul>
+        <!-- <li class="group hover:bg-white/20"><a class="group-hover:text-secondary-400 p-4 block w-full" href="/">HOME</a></li> -->
+        <li class="group hover:bg-white/20"><a class="group-hover:text-secondary-400 p-4 block w-full" href="/posts">BLOG</a></li>
+        <li class="group hover:bg-white/20"><a class="group-hover:text-secondary-400 p-4 block w-full" href="/tags">TAGS</a></li>
+        <li class="group hover:bg-white/20"><a class="group-hover:text-secondary-400 p-4 block w-full" href="/about">ABOUT</a></li>
+      </ul>
+    </div>
   </nav>
 </header>

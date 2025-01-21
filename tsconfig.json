@@ -30,6 +30,9 @@
       ],
       "@posts/*": [
         "src/pages/posts/*"
+      ],
+      "@media/*": [
+        "src/media/*"
       ]
     },
     "jsx": "react-jsx",

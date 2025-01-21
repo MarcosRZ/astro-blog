@@ -1,10 +1,11 @@
 ---
 title: My Third Blog Post
-author: Astro Learner
+author: 
+  name: 'Marcos R.'
+  url: 'https://marcosrgz.com'
 description: "I had some challenges, but asking in the community really helped!"
-image:
-    url: "https://docs.astro.build/assets/rays.webp"
-    alt: "The Astro logo on a dark background with rainbow rays."
+image: '@media/images/pic-3.jpg'
+imageAlt: 'The Astro logo on a dark background with a pink glow.'
 pubDate: 2022-07-15
 tags: ["astro", "learning in public", "setbacks", "community"]
 ---

@@ -1,0 +1,25 @@
+---
+import BlogPost from '@components/BlogPost.astro';
+import { getAllPosts } from '@services/posts';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import '@styles/global.css';
+
+const pageTitle = "All posts";
+const allPosts = await getAllPosts();
+---
+<BaseLayout pageTitle={pageTitle}>
+  <p>This is all I've published, ordered by date, most recent first. Enjoy.</p>
+  <ul class="flex flex-col gap-4">
+    {allPosts.map((post: any) => 
+      <BlogPost
+        image={post.data.image}
+        imageAlt={post.data.imageAlt}
+        url={`/posts/${post.id}/`}
+        title={post.data.title} 
+        author={post.data.author}
+        pubDate={post.data.pubDate}
+        description={post.data.description}
+        />
+    )}
+  </ul>
+</BaseLayout>

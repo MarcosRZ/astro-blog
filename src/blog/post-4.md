@@ -1,10 +1,11 @@
 ---
 title: My Fourth Blog Post
-author: Astro Learner
+author: 
+  name: 'Marcos R.'
+  url: 'https://marcosrgz.com'
 description: "This post will show up on its own!"
-image:
-    url: "https://docs.astro.build/default-og-image.png"
-    alt: "The word astro against an illustration of planets and stars."
+image: '@media/images/pic-4.jpg'
+imageAlt: 'The Astro logo on a dark background with a pink glow.'
 pubDate: 2022-08-08
 tags: ["astro", "successes"]
 ---

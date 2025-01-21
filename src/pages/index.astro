@@ -1,9 +1,18 @@
 ---
-import Greeting from '@components/Greeting';
+import { Image } from 'astro:assets';
 import BaseLayout from '@layouts/BaseLayout.astro';
-const pageTitle = "Home Page";
+const pageTitle = "Marcos Rz. - The blog";
+import x from "@media/images/astro.png";
 ---
 <BaseLayout pageTitle={pageTitle}>
-  <h2>My awesome blog subtitle</h2>
-  <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+  <i>This time is personal</i>
+  <Image class="my-8" src={x} alt="example" />
+  <h2>A new beginning</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pulvinar posuere tristique. Nam faucibus, eros vitae posuere consectetur, nisi sapien varius risus, non fermentum sapien nisl sed justo. Aenean ac aliquam leo. Vivamus rhoncus placerat fermentum. Nullam mi quam, bibendum vel malesuada non, pretium quis urna. Sed luctus dolor nulla, vitae accumsan ligula malesuada sit amet. Quisque metus risus, molestie sit amet mollis nec, sagittis dapibus ex. Fusce id elementum libero. Vivamus tempus a velit vitae vestibulum. Vestibulum pellentesque porttitor enim, ut venenatis nisi eleifend non.</p>
+  <h2>So.. Where's the gardener?</h2>
+  <p>Donec et bibendum eros. Nullam ac enim justo. Duis dapibus ipsum justo, in laoreet enim blandit vitae. In hac habitasse platea dictumst. Nam quis tortor blandit, facilisis purus id, pretium nunc. Morbi ullamcorper blandit neque a tempus. Pellentesque neque libero, ullamcorper et nisi at, malesuada dictum lacus. Nulla eu enim vitae risus venenatis varius. Curabitur non massa eu metus dignissim tempus. Ut hendrerit egestas elementum. Praesent gravida feugiat tempor.</p>
+  <p>Morbi id efficitur lorem. Ut id ipsum ultricies, vestibulum orci ut, cursus magna. Ut a pulvinar eros. Vestibulum non interdum sem. Integer laoreet imperdiet magna vel vehicula. Integer sed posuere lectus. Pellentesque varius sem lectus, sit amet vehicula leo interdum non. Mauris efficitur arcu quis turpis dapibus sollicitudin sit amet sed urna. Integer placerat, quam a ultrices dignissim, urna orci accumsan sapien, vel vehicula ex lectus non metus. Vestibulum laoreet leo non mauris volutpat dapibus. Praesent mattis quis magna a auctor. Nullam sit amet libero ultrices, aliquet enim quis, dapibus est. Sed pulvinar euismod nisl, in cursus turpis blandit non. Vestibulum dapibus tempus luctus.</p>
+  <p>Praesent accumsan fermentum fermentum. Quisque hendrerit hendrerit ante a efficitur. Sed faucibus nibh risus, at fringilla eros vehicula vitae. Quisque euismod rutrum tortor, nec facilisis turpis condimentum et. Nunc a justo nec risus fringilla consectetur. Donec libero justo, ultrices sit amet urna eget, ultrices eleifend urna. Praesent consectetur, magna at laoreet elementum, sem est venenatis justo, ac lacinia turpis libero non purus. Fusce dignissim euismod sapien, sed rhoncus diam semper sed. Donec sed nisi vitae elit faucibus sollicitudin et vitae sapien. Cras feugiat neque eget ligula fringilla consectetur. Vestibulum sit amet ipsum ac dui cursus rhoncus et id nisl. Aliquam condimentum, augue vitae posuere dictum, sem ligula feugiat ipsum, in fringilla mi nulla nec nunc. Nullam pellentesque at erat a gravida. Sed maximus purus at tristique euismod.</p>
+  <p>Nulla metus nulla, blandit in nisl non, suscipit feugiat felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer justo mi, egestas et nisi sit amet, condimentum iaculis odio. Fusce condimentum ullamcorper mauris, ac malesuada neque finibus a. Duis imperdiet erat enim, id pellentesque ligula tincidunt quis. Cras tellus tortor, pellentesque ut pretium in, blandit a sapien. Nam lobortis urna eu sem vulputate tincidunt. Suspendisse potenti. Vivamus tincidunt neque ut erat feugiat, semper luctus lorem pharetra. Duis vulputate eros ante, at pulvinar dui placerat ut. Fusce pulvinar porta dui, congue mollis tellus sodales vitae. Quisque est quam, facilisis vitae elit eget, porttitor dignissim magna. Suspendisse auctor mauris ante, vel pulvinar mi viverra at. Maecenas blandit dignissim erat vitae interdum. In maximus, libero sed tempus sollicitudin, quam purus bibendum ante, quis tempus augue leo quis quam.</p>
+  <!-- <Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} /> -->
 </BaseLayout>

@@ -1,16 +1,5 @@
----
-import Social from './Social.astro';
----
-<style>
-  footer {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-</style>
-
-<footer>
-  <Social platform="twitter" username="astrodotbuild" />
-  <Social platform="github" username="withastro" />
-  <Social platform="youtube" username="astrodotbuild" />
+<footer class="bg-primary-600 py-12 text-white border-t-2  border-secondary-500 min-h-[15vh]">
+  <div class="w-full max-w-[1024px] mx-auto p-2 flex justify-center">
+    <p class="text-sm"><a class="underline font-extrabold text-secondary-200" href="https://marcosrgz.com" target="_blank">Marcos R.</a> | 2025 | Built with <a class="underline font-extrabold text-secondary-200" target="_blank" href="https://astro.build" class="underline">Astro</a></p>
+  </div>
 </footer>

@@ -1,10 +1,20 @@
 ---
-import Hamburguer from './Hamburguer.astro';
+import Logo from './Logo.astro';
 ---
 
-<div class="nav-links">
-  <a href="/">Home</a>
-  <a href="/about/">About</a>
-  <a href="/blog/">Blog</a>
-  <a href="/tags/">Tags</a>
+<div class="flex uppercase text-xl items-center">
+  <div class="flex items-center gap-10">
+    <a class="block border-b-2 border-y-2 border-transparent hover:border-b-secondary-400" href="/" title="Go to home">
+      <div class="flex gap-2 items-center">
+        <Logo/>
+        <span>MarcosRZ</span>
+      </div>
+    </a>
+    <div class="hidden sm:flex gap-10">
+      <!-- <a class="block border-b-2 border-y-2 border-transparent hover:border-b-secondary-400" href="/">Home</a> -->
+      <a class="block border-b-2 border-y-2 border-transparent hover:border-b-secondary-400" href="/posts/">Posts</a>
+      <a class="block border-b-2 border-y-2 border-transparent hover:border-b-secondary-400" href="/tags/">Tags</a>
+      <a class="block border-b-2 border-y-2 border-transparent hover:border-b-secondary-400" href="/about/">About</a>
+    </div>
+  </div>
 </div>

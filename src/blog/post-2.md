@@ -1,10 +1,11 @@
 ---
 title: My Second Blog Post
-author: Astro Learner
+author: 
+  name: 'Marcos R.'
+  url: 'https://marcosrgz.com'
 description: "After learning some Astro, I couldn't stop!"
-image:
-    url: "https://docs.astro.build/assets/arc.webp"
-    alt: "The Astro logo on a dark background with a purple gradient arc."
+image: '@media/images/pic-2.jpg'
+imageAlt: 'The Astro logo on a dark background with a pink glow.'
 pubDate: 2022-07-08
 tags: ["astro", "blogging", "learning in public", "successes"]
 ---
