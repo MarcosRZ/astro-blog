@@ -1,5 +1,40 @@
 # Astro Starter Kit: Minimal
 
+## MarcosRZ Notes
+
+I'm writing this down as a quick reference of the design decisions I made. Not because they're of interest to anyone else, but because I want to keep a record of them.
+
+If you're me (from the future), you're welcome. 🤙 
+
+![Emmet](https://raw.githubusercontent.com/MarcosRZ/astro-blog/refs/heads/master/src/media/images/emmet.png)
+
+### Adding content
+
+Writing flow relies on GitHub and Netlify. Pushes to master will trigger a build and deploy to Netlify. So basically, to publish a new post, just write a .md file in `src/blog/` and push to master.
+
+- Adding `.md` files to the `src/blog/` directory will automatically add them to the routing / rendering.
+- Add resources to `@media`. E.g. images (`@media/images`). Use `<Image />` component to have an optimized version. 
+- I've configured typescript module aliases for several directories. `tsconfig.json`
+
+### 🔻 Triangles background
+
+Didn't find an easy way to use css vars inside an svg being used as background image, so it's basically a black and white image with opacity. The color is is set using background-color as usual.
+
+As this effect is used in Header, Body and Footer, I've created a `.triangles` class and applied wherever it made sense.
+
+### 🧭 Sitemap and 🤖 Robots
+
+Sitemap and robots files are generated at **build time**. This means they won't be available in dev env. Run a **build preview** to generate and serve them.
+
+Then you should be able to visit them: `/sitemap-index.xml`, `/robots.txt` and `/sitemap-0.xml`
+
+### 🔊 Automatic RSS Feed
+
+Yep. That's it. See `rss.xml.js`.
+
+## Astro default readme
+
+
 ```sh
 npm create astro@latest -- --template minimal
 ```

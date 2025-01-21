@@ -30,6 +30,7 @@
   --secondary-800: #1b546f;
   --secondary-900: #1a465f;
   --secondary-950: #0c2d40;
+
 }
 
 .dark {
@@ -79,6 +80,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-smooth: always;
+    background-attachment: fixed;
+  }
+  
+  .triangles {
+    background-image: url(/src/media/images/subtle-prism-dark.svg);
   }
 
   a {
