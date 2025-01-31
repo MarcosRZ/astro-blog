@@ -8,7 +8,7 @@ If you're me (from the future), you're welcome. 🤙
 
 ![Emmet](https://raw.githubusercontent.com/MarcosRZ/astro-blog/refs/heads/master/src/media/images/emmet.png)
 
-### Adding content
+### ✏️ Adding content
 
 Writing flow relies on GitHub and Netlify. Pushes to master will trigger a build and deploy to Netlify. So basically, to publish a new post, just write a .md file in `src/blog/` and push to master.
 

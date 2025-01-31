@@ -1,60 +1,21 @@
 ---
-import Footer from '@components/Footer.astro';
-import Header from '@components/Header.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import '@styles/global.css';
 
 const pageTitle = "About Me";
-
-const identity = {
-  firstName: "Sarah",
-  country: "Canada",
-  occupation: "Technical Writer",
-  hobbies: ["photography", "birdwatching", "baseball"],
-};
-
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
-
-const happy = true;
-const finished = true;
-const goal = 3;
-
-const skillColor = "navy";
-const fontWeight = "bold";
-const textCase = "uppercase";
+import me from '@media/images/me.jpeg';
+import { Image } from 'astro:assets';
 ---
 
-<BaseLayout pageTitle="About this blog">
-    <h1>... and my new Astro site!</h1>
-    <p>
-      I am working through Astro's introductory tutorial. This is the second
-      page on my website, and it's the first one I built myself!
-    </p>
-
-    <p>
-      This site will update as I complete more of the tutorial, so keep checking
-      back and see how my journey is going!
-    </p>
-    <p>Here are a few facts about me:</p>
-    <ul>
-      <li>My name is {identity.firstName}.</li>
-      <li>
-        I live in {identity.country} and I work as a {identity.occupation}.
-      </li>
-      {
-        identity.hobbies.length >= 2 && (
-          <li>
-            Two of my hobbies are: {identity.hobbies[0]} and{" "}
-            {identity.hobbies[1]}
-          </li>
-        )
-      }
-    </ul>
-    <p>My skills are:</p>
-    <ul>
-      {skills.map((skill) => <li class="skill">{skill}</li>)}
-    </ul>
-    {happy && <p>I am happy to be learning Astro!</p>}
-    {finished && <p>I finished this tutorial!</p>}
-    {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+<BaseLayout>
+  <h1 class="text-center">About me</h1>
+  <div class="my-8">
+    <Image src={me} alt="A photograph of me" class="border-2 border-gray-500 rounded-full w-full max-w-80 md:my-8 m-auto" />
+  </div>
+  <h2>Bio</h2>
+  <p>I have a BS in Software Engineering and I've been working uninterruptedly in the industry for 10+ years.</p>
+  <p>I've been involved in many different projects, from small product-focused startups to large consultancy companies, and I've worked with a wide range of technologies and programming languages.</p>
+  <p>For the last few years, I've been mostly focused in Full Stack Javascript development and leadership.</p>
+  <p>I'm currently working as a Senior Full Stack Engineer at <a href="https://www.sngular.com" target="_blank" rel="noreferrer noopener">S|NGULAR</a>, where I'm helping build new features in a product for the Atlassian Apps Ecosystem</p>
+  <h2></h2>
 </BaseLayout>

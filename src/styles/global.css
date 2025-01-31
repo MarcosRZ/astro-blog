@@ -130,6 +130,11 @@
   code {
     @apply p-4 block;
   }
+
+  pre:has(code) {
+    border: 1px solid #666;
+    padding: 10px;
+  }
 }
 
 .dark .nav-links a {
